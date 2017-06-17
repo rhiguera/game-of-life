@@ -11,6 +11,6 @@ const seed = gridInit.withSeed(emptyCellChar,
   [ [0, 1], [1, 2], [2, 0], [2, 1], [2, 2] ]
 );
 
-const draw = gameOfLife(aliveCellChar, emptyCellChar, 25, 25, seed);
+const game = gameOfLife(aliveCellChar, emptyCellChar, 25, 25, seed);
 
-setInterval(() => draw(), 70);
+setInterval(() => game.draw(), 120);
