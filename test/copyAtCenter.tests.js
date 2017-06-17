@@ -1,8 +1,8 @@
 const path            = require('path');
 const expect          = require('chai').expect;
-const glider          = require(path.join('..', 'src', 'glider'));
+const copyAtCenter    = require(path.join('..', 'src', 'copyAtCenter'));
 
-describe('Glider tests', () => {
+describe('CopyAtCenter tests', () => {
 
   it('sets a grid with a given seed', () => {
     const inputGrid = [
@@ -17,7 +17,7 @@ describe('Glider tests', () => {
       ['#', '#', '#']
     ];
 
-    const result = glider(inputGrid, seed);
+    const result = copyAtCenter(inputGrid, seed);
 
     expect(result).to.deep.equal(seed);
     expect(result).to.not.equal(seed);
@@ -40,7 +40,7 @@ describe('Glider tests', () => {
       ['#', ' ', ' ', ' ', '#'],
     ];
 
-    const result = glider(inputGrid, seed);
+    const result = copyAtCenter(inputGrid, seed);
 
     expect(result).to.deep.equal(seed);
     expect(result).to.not.equal(seed);

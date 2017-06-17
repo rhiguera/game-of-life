@@ -10,9 +10,9 @@ describe('neighborCounter tests', () => {
       ['#', '#', '#'],
       ['#', '#', '#']
     ];
-    const sut = neighborCounter(cellGrid);
+    const neighbors = neighborCounter(cellGrid);
 
-    const result = sut.count(1, 1, inputGrid);
+    const result = neighbors(1, 1, inputGrid);
 
     expect(result).to.eql(8);
   });
@@ -24,9 +24,9 @@ describe('neighborCounter tests', () => {
       ['#', '#', '#'],
       [' ', '#', ' ']
     ];
-    const sut = neighborCounter(cellGrid);
+    const neighbors = neighborCounter(cellGrid);
 
-    const result = sut.count(1, 1, inputGrid);
+    const result = neighbors(1, 1, inputGrid);
 
     expect(result).to.eql(4);
   });
@@ -38,9 +38,9 @@ describe('neighborCounter tests', () => {
       [' ', '#', ' '],
       ['#', ' ', '#']
     ];
-    const sut = neighborCounter(cellGrid);
+    const neighbors = neighborCounter(cellGrid);
 
-    const result = sut.count(1, 1, inputGrid);
+    const result = neighbors(1, 1, inputGrid);
 
     expect(result).to.eql(4);
   });
@@ -52,9 +52,9 @@ describe('neighborCounter tests', () => {
       ['#', '#', ' '],
       [' ', ' ', ' ']
     ];
-    const sut = neighborCounter(cellGrid);
+    const neighbors = neighborCounter(cellGrid);
 
-    const result = sut.count(0, 0, inputGrid);
+    const result = neighbors(0, 0, inputGrid);
 
     expect(result).to.eql(3);
   });
@@ -66,9 +66,9 @@ describe('neighborCounter tests', () => {
       [' ', '#', '#'],
       [' ', '#', '#']
     ];
-    const sut = neighborCounter(cellGrid);
+    const neighbors = neighborCounter(cellGrid);
 
-    const result = sut.count(2, 2, inputGrid);
+    const result = neighbors(2, 2, inputGrid);
 
     expect(result).to.eql(3);
   });

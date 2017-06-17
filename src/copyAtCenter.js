@@ -1,7 +1,7 @@
 
-module.exports = glider;
+module.exports = copyAtCenter;
 
-function glider(grid, seed) {
+function copyAtCenter(grid, seed) {
   const midGridRow = Math.floor(grid.length / 2);
   const midGridColumn = Math.floor(grid.length / 2);
 
