@@ -23,6 +23,10 @@ Adding a new pattern could be added by using `gridInit.withSeed` function. This 
 * The size of the input grid by rows and columns
 * An array of coordinates where an alive cell has to be present on the defined grid.
 
+# Demo
+
+![demo](https://user-images.githubusercontent.com/312799/27254262-eacc618a-5339-11e7-982c-4065b92d6b5e.gif)
+
 # Contributing
 
 Submit your PR
