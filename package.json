@@ -1,0 +1,16 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/main.js",
+    "test": "mocha --watch"
+  },
+  "devDependencies": {
+    "chai": "4.0.2",
+    "mocha": "3.4.2"
+  },
+  "dependencies": {
+    "nodemon": "1.11.0"
+  }
+}
