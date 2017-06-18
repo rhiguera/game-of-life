@@ -22,7 +22,17 @@ describe('Grid init tests', () => {
         ['#', '#', '#']
       ];
 
-    const result = gridInit.withSeed(' ', '#', 3, 3, [ [0, 1], [1, 2], [2, 0], [2, 1], [2, 2] ]);
+    const result = gridInit.withSeed(' ',
+      '#',
+      3,
+      3,
+      [
+        { row: 0, cell: 1},
+        { row: 1, cell: 2},
+        { row: 2, cell: 0},
+        { row: 2, cell: 1},
+        { row: 2, cell: 2}
+      ]);
 
     expect(result).to.deep.equal(expectedSeed);
   });

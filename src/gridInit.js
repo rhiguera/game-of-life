@@ -19,8 +19,8 @@ function withSeed(emptyChar, cellChar, rows, columns, seedArray) {
   let seed = empty(emptyChar, rows, columns);
 
   seedArray.forEach(coordinate => {
-    const row = coordinate[0];
-    const column = coordinate[1];
+    const row = coordinate.row;
+    const column = coordinate.cell;
     //TODO: error could happen
 
     seed[row][column] = cellChar;

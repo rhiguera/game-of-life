@@ -8,7 +8,13 @@ const seed = gridInit.withSeed(emptyCellChar,
   aliveCellChar,
   3,
   3,
-  [ [0, 1], [1, 2], [2, 0], [2, 1], [2, 2] ]
+  [
+    { row: 0, cell: 1},
+    { row: 1, cell: 2},
+    { row: 2, cell: 0},
+    { row: 2, cell: 1},
+    { row: 2, cell: 2}
+  ]
 );
 
 const game = gameOfLife(aliveCellChar, emptyCellChar, 25, 25, seed);
