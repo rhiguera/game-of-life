@@ -24,8 +24,6 @@ module.exports = function(cellChar, emptyChar, rows, columns, seed) {
 }
 
 function start(grid) {
-  draw(grid);
-
   return () => {
     let newGrid = update(grid);
     grid = newGrid;
