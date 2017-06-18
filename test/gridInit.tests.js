@@ -27,14 +27,38 @@ describe('Grid init tests', () => {
       3,
       3,
       [
-        { row: 0, cell: 1},
-        { row: 1, cell: 2},
-        { row: 2, cell: 0},
-        { row: 2, cell: 1},
-        { row: 2, cell: 2}
+        { row: 0, column: 1},
+        { row: 1, column: 2},
+        { row: 2, column: 0},
+        { row: 2, column: 1},
+        { row: 2, column: 2}
       ]);
 
     expect(result).to.deep.equal(expectedSeed);
+  });
+
+  it('throws when seed coordinates are out of bound', () => {
+    const expectedSeed = [
+        [' ', '#', ' '],
+        [' ', ' ', '#'],
+        ['#', '#', '#']
+      ];
+
+    const result = gridInit.withSeed.bind(null, ' ',
+      '#',
+      3,
+      3,
+      [
+        { row: 0, column: 1},
+        { row: 1, column: 2},
+        { row: 2, column: 0},
+        { row: 2, column: 1},
+        { row: 2, column: 4}
+      ]
+
+    );
+
+    expect(result).to.throw('Row in { 2 , 4 } is out of bounds. Max is 3');
   });
 });
 

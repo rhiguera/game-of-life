@@ -20,8 +20,14 @@ function withSeed(emptyChar, cellChar, rows, columns, seedArray) {
 
   seedArray.forEach(coordinate => {
     const row = coordinate.row;
-    const column = coordinate.cell;
-    //TODO: error could happen
+    if (row >= rows) {
+      throw new Error(`Row in { ${coordinate.row} , ${coordinate.column} } is out of bounds. Max is ${rows}`)
+    }
+
+    const column = coordinate.column;
+    if (column >= columns) {
+      throw new Error(`Row in { ${coordinate.row} , ${coordinate.column} } is out of bounds. Max is ${columns}`)
+    }
 
     seed[row][column] = cellChar;
   });
