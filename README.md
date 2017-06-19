@@ -29,4 +29,10 @@ Adding a new pattern could be added by using `gridInit.withSeed` function. This 
 
 # Contributing
 
-Submit your PR
+
+* Clone this repo: [git@github.com:hyeomans/game-of-life.git](git@github.com:hyeomans/game-of-life.git)
+* `cd game-of-life`
+* `npm install`
+* `npm test`
+* Add your feature
+* Submit PR
