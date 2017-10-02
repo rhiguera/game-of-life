@@ -25,7 +25,7 @@ Adding a new pattern could be added by using `gridInit.withSeed` function. This 
 
 # Demo
 
-![demo](https://user-images.githubusercontent.com/312799/27254262-eacc618a-5339-11e7-982c-4065b92d6b5e.gif)
+![demo](https://github.com/hyeomans/game-of-life/blob/master/demo.gif)
 
 # Contributing
 
