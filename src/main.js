@@ -1,6 +1,8 @@
 const gameOfLife      = require('./gameOfLife');
 const gridInit        = require('./gridInit');
 
+process.stdout.write('\033c');
+
 const aliveCellChar = '#';
 const emptyCellChar = '_';
 
@@ -19,4 +21,4 @@ const seed = gridInit.withSeed(emptyCellChar,
 
 const game = gameOfLife(aliveCellChar, emptyCellChar, 25, 25, seed);
 
-setInterval(() => game.draw(), 70);
+setInterval(() => game.draw(), 80);

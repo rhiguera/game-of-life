@@ -11,6 +11,7 @@
     "mocha": "3.4.2"
   },
   "dependencies": {
+    "log-update": "2.1.0",
     "nodemon": "1.11.0"
   }
 }

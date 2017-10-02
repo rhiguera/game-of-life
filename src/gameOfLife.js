@@ -1,3 +1,4 @@
+const logUpdate = require('log-update');
 const neighborCounter = require('./neighborCounter');
 const cellLifeTime    = require('./cellLifeTime');
 const copyAtCenter    = require('./copyAtCenter');
@@ -50,6 +51,6 @@ function update(grid) {
 }
 
 function draw(grid) {
-  process.stdout.write('\033c');
-  grid.forEach(row => console.log(row.join('')));
+  const drawing = grid.map(row => row.join('')).join('\n');
+  logUpdate(drawing);
 }
