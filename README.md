@@ -1,6 +1,8 @@
 # Conway's Game of Life in Node.js
 by [Hector Yeomans](http://hyeomans.com)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/241a3f05d4eccdb34aad/maintainability)](https://codeclimate.com/github/hyeomans/game-of-life/maintainability)
+
 Conway's Game of Life is a simulation "zero player" game where the initial state will trigger the evolution of the game.
 
 You can interact with Game of Life by giving in different input patterns.
