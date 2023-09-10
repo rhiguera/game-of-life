@@ -2,7 +2,7 @@ const path            = require('path');
 const expect          = require('chai').expect;
 const cellLifeTime    = require(path.join('..', 'src', 'cellLifeTime'));
 
-describe('Cell lifetime', () => {
+describe('Cell lifetime!!!', () => {
   it('should live with two neighbors', () => {
 
     const result = cellLifeTime.shouldItLive(true, 2);
