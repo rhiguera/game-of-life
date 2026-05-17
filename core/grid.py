@@ -4,6 +4,7 @@ class Grid:
     def __init__(self, rows, cols):
         self.rows = rows
         self.cols = cols
+        self.generation = 0
         # Grid stores age: 0 if dead, >0 if alive (represents consecutive generations)
         self.cells = [[0 for _ in range(cols)] for _ in range(rows)]
 
@@ -52,3 +53,4 @@ class Grid:
                         new_cells[r][c] = 1
         
         self.cells = new_cells
+        self.generation += 1
