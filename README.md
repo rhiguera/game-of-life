@@ -27,15 +27,17 @@ Una implementación modular del Juego de la Vida de Conway en Python, con seguim
 
 ## Uso
 
-Ejecutar la GUI (por defecto):
+La forma más sencilla de ejecutar el proyecto es usando el script `launcher.sh`, que activa automáticamente el entorno virtual:
+
 ```bash
-python3 main.py
+# Ejecutar la GUI (por defecto)
+./launcher.sh
+
+# Ejecutar en modo consola
+./launcher.sh --mode console
 ```
 
-Ejecutar en modo consola:
-```bash
-python3 main.py --mode console
-```
+También puedes invocarlo manualmente si lo prefieres:
 
 ### Controles (GUI)
 - **Click Izquierdo**: Activar/Desactivar celda.

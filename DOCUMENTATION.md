@@ -74,18 +74,20 @@ pip install -r requirements.txt
 ```
 
 ### Lanzamiento
-La aplicación soporta varios argumentos por consola:
+Se recomienda usar el script `launcher.sh` para una ejecución rápida sin gestionar el entorno virtual manualmente:
 
 ```bash
-# Ejecución estándar (GUI, 40x60)
-python3 main.py
+# Ejecución estándar (GUI)
+./launcher.sh
 
 # Ejecución en modo consola
-python3 main.py --mode console
+./launcher.sh --mode console
 
 # Personalizar tamaño de cuadrícula
-python3 main.py --rows 50 --cols 80 --cell-size 10
+./launcher.sh --rows 50 --cols 80 --cell-size 10
 ```
+
+También es posible la ejecución manual:
 
 ### Controles en modo GUI
 - **Mouse Click**: Cambia el estado de una celda manualmente.
