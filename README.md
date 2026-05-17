@@ -10,9 +10,10 @@ Una implementación moderna, modular y visualmente atractiva del Juego de la Vid
 
 ## ✨ Características Principales
 
-*   **🎨 Gradiente de Envejecimiento**: Las celdas nacen con un verde brillante y evolucionan hacia un azul profundo conforme sobreviven generaciones.
+*   **🎨 Gradiente Neón de Envejecimiento**: Las celdas evolucionan de un verde neón vibrante a un azul eléctrico profundo.
+*   **📊 Panel de Estadísticas**: Seguimiento en tiempo real de la generación actual y estado de la simulación.
 *   **🕹️ Interfaz Dual**: Elige entre una experiencia gráfica rica con **Pygame** o una interfaz minimalista de **consola**.
-*   **🖱️ Interactividad Total**: Dibuja tus propios patrones en tiempo real haciendo clic en la cuadrícula.
+*   **🖱️ Dibujo Continuo**: Mantén presionado y arrastra para "pintar" celdas vivas en la cuadrícula.
 *   **🏗️ Arquitectura Robusta**: Código modular con separación clara entre lógica de simulación y capas de presentación.
 *   **🧪 Testeado**: Suite de pruebas unitarias para garantizar la fidelidad de las reglas de Conway.
 
@@ -41,27 +42,28 @@ Una implementación moderna, modular y visualmente atractiva del Juego de la Vid
 Hemos incluido un script de conveniencia que gestiona el entorno virtual por ti:
 
 ```bash
-# Iniciar GUI (Modo por defecto)
+# Iniciar GUI (Modo por defecto, población 80x120)
 ./launcher.sh
 
 # Iniciar en modo Terminal
 ./launcher.sh --mode console
 
-# Configuración personalizada (ej. rejilla más grande)
-./launcher.sh --rows 50 --cols 80
+# Configuración personalizada
+./launcher.sh --rows 100 --cols 150 --cell-size 8
 ```
 
 ### Controles de la GUI
 *   **Barra Espaciadora**: Pausar / Reanudar la simulación.
-*   **Clic Izquierdo**: Alternar estado de una celda (viva/muerta).
-*   **R**: Reiniciar la cuadrícula (borrar todo).
+*   **Clic Izquierdo + Arrastrar**: Dibujar celdas vivas.
+*   **Clic Derecho + Arrastrar**: Borrar celdas.
+*   **R**: Reiniciar la cuadrícula y el contador de generaciones.
 *   **ESC / Cerrar ventana**: Salir de la aplicación.
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-*   `core/`: El "motor" del juego. Lógica de celdas y reglas de evolución.
+*   `core/`: El "motor" del juego. Lógica de celdas, reglas de evolución y contador de generaciones.
 *   `ui/`: Capas de visualización (Pygame y Consola).
 *   `tests/`: Pruebas automatizadas.
 *   `launcher.sh`: Script de ejecución rápida.

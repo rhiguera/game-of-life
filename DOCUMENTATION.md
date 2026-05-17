@@ -23,8 +23,8 @@ El proyecto sigue un patrón de diseño similar a **MVC (Modelo-Vista-Controlado
 ```
 
 ### Componentes:
-- **Core (Modelo)**: Contiene el estado de la simulación y las leyes físicas (reglas de Conway). No conoce nada de la interfaz.
-- **UI (Vista/Controlador)**: Se encarga de representar el estado del `Grid` y capturar la entrada del usuario para modificarlo.
+- **Core (Modelo)**: Contiene el estado de la simulación, el contador de generaciones y las leyes físicas (reglas de Conway). No conoce nada de la interfaz.
+- **UI (Vista/Controlador)**: Se encarga de representar el estado del `Grid` y capturar la entrada del usuario (ratón y teclado) para modificar el estado o controlar el flujo de la simulación.
 - **Main (Orquestador)**: Configura la aplicación basándose en los parámetros de la línea de comandos e inicializa el bucle principal.
 
 ## 3. Estructura de Directorios y Ficheros
@@ -33,36 +33,37 @@ El proyecto sigue un patrón de diseño similar a **MVC (Modelo-Vista-Controlado
 game-of-life/
 ├── core/
 │   ├── __init__.py
-│   └── grid.py         # Clase Grid: Lógica de evolución y seguimiento de edad.
+│   └── grid.py         # Clase Grid: Lógica de evolución, edad y contador de generaciones.
 ├── ui/
 │   ├── __init__.py
 │   ├── interface.py    # Clase base abstracta BaseUI.
 │   ├── console_view.py # Implementación CLI para terminal.
-│   └── pygame_view.py  # Implementación GUI con Pygame.
+│   └── pygame_view.py  # Implementación GUI avanzada con Pygame.
 ├── tests/
 │   ├── __init__.py
 │   └── test_grid.py    # Tests unitarios de la lógica central.
-├── main.py             # Punto de entrada y gestión de argumentos CLI.
-├── README.md           # Guía rápida de inicio.
+├── main.py             # Punto de entrada, población inicial aleatoria y gestión de argumentos.
+├── launcher.sh         # Script Bash para ejecución simplificada.
+├── README.md           # Guía rápida de inicio y presentación.
 ├── DOCUMENTATION.md    # Esta documentación detallada.
 ├── PLAN.md             # Plan de diseño inicial.
 ├── requirements.txt    # Dependencias del proyecto.
 └── .gitignore          # Archivos excluidos de Git.
 ```
 
-## 4. Lógica de Envejecimiento
+## 4. Lógica de Envejecimiento y Visualización
 
-A diferencia de la implementación estándar, cada celda no solo está "viva" o "muerta". Si está viva, almacena un número entero que representa su **edad** (generaciones consecutivas sobreviviendo).
+### Sistema de Edad
+A diferencia de la implementación estándar, cada celda almacena un valor entero:
+- **0**: Muerta.
+- **1**: Recién nacida.
+- **n**: Ha sobrevivido durante *n* generaciones consecutivas.
 
-- **Nacimiento**: Valor inicial = 1.
-- **Supervivencia**: Valor = Valor anterior + 1.
-- **Muerte**: Valor = 0.
-
-### Representación Visual
-En `PygameUI`, el color se calcula dinámicamente:
-- **Edad 1**: Verde Brillante `(0, 255, 100)`.
-- **Edad 10+**: Azul Profundo `(0, 50, 200)`.
-- Las edades intermedias se calculan mediante interpolación lineal de colores.
+### Representación Visual (Pygame)
+La interfaz gráfica utiliza un gradiente de color interpolado para representar la madurez de la colonia:
+- **Fase Inicial (Verde Neón)**: Celdas jóvenes y vibrantes.
+- **Fase de Transición (Cian)**: Celdas que han sobrevivido varias generaciones.
+- **Fase de Madurez (Azul Eléctrico)**: Celdas longevas que forman parte de estructuras estables.
 
 ## 5. Uso de la Aplicación
 
@@ -74,26 +75,25 @@ pip install -r requirements.txt
 ```
 
 ### Lanzamiento
-Se recomienda usar el script `launcher.sh` para una ejecución rápida sin gestionar el entorno virtual manualmente:
+Se recomienda usar el script `launcher.sh` para una ejecución rápida:
 
 ```bash
-# Ejecución estándar (GUI)
+# Ejecución estándar (GUI, 80x120)
 ./launcher.sh
 
 # Ejecución en modo consola
 ./launcher.sh --mode console
 
-# Personalizar tamaño de cuadrícula
-./launcher.sh --rows 50 --cols 80 --cell-size 10
+# Configuración personalizada
+./launcher.sh --rows 100 --cols 150 --cell-size 8
 ```
 
-También es posible la ejecución manual:
-
 ### Controles en modo GUI
-- **Mouse Click**: Cambia el estado de una celda manualmente.
+- **Clic Izquierdo + Arrastrar**: Pinta celdas vivas (edad 1) en tiempo real.
+- **Clic Derecho + Arrastrar**: Borra celdas de la cuadrícula.
 - **Barra Espaciadora**: Pausa o reanuda la simulación.
-- **Tecla R**: Resetea la cuadrícula (todas las celdas a 0).
-- **Cerrar ventana**: Finaliza el proceso.
+- **Tecla R**: Resetea la cuadrícula y pone el contador de generaciones a cero.
+- **Cerrar ventana**: Finaliza el proceso de forma segura.
 
 ## 6. Ejecución de Tests
 Para asegurar que los cambios no rompen la lógica del juego:
